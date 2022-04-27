@@ -32,8 +32,8 @@ router.post("/login", checkUsernameExists, (req, res, next) => {
       role_name: user.role_name
     };
     const options = { expiresIn: '1d' };
-    return jwt.sign(payload, JWT_SECRET, options)
-    }
+    return jwt.sign(payload, JWT_SECRET, options);
+  }
 
   Users.findBy({ username })
     .then(([user]) => {

@@ -69,3 +69,16 @@
         - If role_name is over 32 characters after trimming the string:
         { status: 422, message: "Role name can not be longer than 32 chars" }
 */
+
+/** auth-router
+    * [POST] /api/auth/register 
+        { "username": "anna", "password": "1234", "role_name": "angel" }
+
+    response:
+        status 201
+        {
+            "user"_id: 3,
+            "username": "anna",
+            "role_name": "angel"
+        }
+*/

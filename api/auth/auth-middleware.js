@@ -33,16 +33,17 @@ const only = role_name => (req, res, next) => {
 
 
 const checkUsernameExists = (req, res, next) => {
-  const { username } = req.body.username;
-
+  const { username } = req.body;
+  
   Users.findBy({ username })
     .then(user => {
-      if(user){
+      if(!user[0]){
         next({ status: 401, message: "Invalid credentials" });
-        return; 
+        return;
       } else {
         next();
       }
+
     })
 }
 
